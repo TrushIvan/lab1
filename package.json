@@ -1,0 +1,18 @@
+{
+  "name": "lab2-testing",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage",
+    "e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@vitest/coverage-v8": "^2.1.8",
+    "vite": "^5.4.10",
+    "vitest": "^2.1.8"
+  }
+}
