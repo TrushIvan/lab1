@@ -57,7 +57,7 @@ describe("taskUtils", () => {
     expect(filtered).toHaveLength(1);
     expect(filtered[0].title).toBe("B");
 
-    expect(stats.total).toBe(4);
+    expect(stats.total).toBe(3);
     expect(stats.completed).toBe(2);
     expect(stats.progress).toBe(67);
   });
