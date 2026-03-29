@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lab2 Task Manager</title>
+  <title>Lab3 Task Manager</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -20,7 +20,21 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
 
-    h1 { margin-top: 0; }
+    h1 {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .status-badge {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 6px 10px;
+      border: 1px solid #999;
+      border-radius: 8px;
+      background: #f0f0ff;
+      font-size: 14px;
+      font-weight: bold;
+    }
 
     form {
       display: flex;
@@ -78,6 +92,7 @@
 <body>
   <div class="card">
     <h1>Task Manager</h1>
+    <div id="app-status" class="status-badge">Loading...</div>
 
     <div id="error" class="error" data-testid="error"></div>
 

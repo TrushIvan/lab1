@@ -5,6 +5,8 @@ import {
   getStats
 } from "./taskUtils.js";
 
+const STORAGE_KEY = "lab3_tasks";
+
 const form = document.getElementById("task-form");
 const input = document.getElementById("task-input");
 const errorBox = document.getElementById("error");
@@ -13,8 +15,20 @@ const totalCount = document.getElementById("total-count");
 const completedCount = document.getElementById("completed-count");
 const progressCount = document.getElementById("progress-count");
 const clearCompletedBtn = document.getElementById("clear-completed-btn");
+const appStatus = document.getElementById("app-status");
 
-let tasks = [];
+appStatus.textContent = import.meta.env.VITE_APP_STATUS;
+
+function loadTasks() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  return raw ? JSON.parse(raw) : [];
+}
+
+function saveTasks() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+}
+
+let tasks = loadTasks();
 
 function renderStats() {
   const stats = getStats(tasks);
@@ -41,6 +55,7 @@ function renderTasks() {
     toggleBtn.dataset.testid = `toggle-${task.id}`;
     toggleBtn.addEventListener("click", () => {
       tasks = toggleTask(tasks, task.id);
+      saveTasks();
       render();
     });
 
@@ -65,6 +80,7 @@ form.addEventListener("submit", (event) => {
 
   if (!result.error) {
     input.value = "";
+    saveTasks();
   }
 
   render();
@@ -72,6 +88,7 @@ form.addEventListener("submit", (event) => {
 
 clearCompletedBtn.addEventListener("click", () => {
   tasks = clearCompleted(tasks);
+  saveTasks();
   render();
 });
 
