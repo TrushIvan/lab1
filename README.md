@@ -1,12 +1,21 @@
-# IT Project Management Lab 1
+[![CI/CD Pipeline](https://github.com/TrushIvan/lab1/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/TrushIvan/lab1/actions/workflows/ci-cd.yml)
 
-## MNP Idea
-Simple demo project for practicing
-Git workflow.
+# lab1
 
-## Tech Stack
-- Git
-- GitHub
+## IT Project Management Lab 4
 
-## Run
-No setup required.
+Vite-based Task Manager application with configured CI/CD pipeline using GitHub Actions and automatic deployment via Vercel.
+
+## Production
+Live site: https://lab-1-henna.vercel.app/
+
+## CI/CD
+- GitHub Actions: lint + tests + build
+- Vercel: automatic deployment from main
+
+## Features
+- додавання задач
+- зміна статусу виконання
+- очищення виконаних задач
+- збереження у localStorage
+- підтримка dev/prod режимів через environment variables
